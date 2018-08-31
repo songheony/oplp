@@ -2,24 +2,40 @@ import numpy as np
 
 
 def square(x, y):
-    return (y - x) ** 2
+    np_x = np.array(x)
+    np_y = np.array(y)
+    return np.sum((np_x - np_y) ** 2, axis=1)
 
 
 def logarithmic(x, y):
-    return (1 - y) * np.log((1 - y) / (1 - x)) + y * np.log(y / x)
+    np_x = np.array(x)
+    np_y = np.array(y)
+    return np.sum((1 - np_y) * np.log((1 - np_y) / (1 - np_x)) + np_y * np.log(np_y / np_x), axis=1)
 
 
 def hellinger(x, y):
-    return ((np.sqrt(1 - y) - np.sqrt(1 - x)) ** 2 + (np.sqrt(y) - np.sqrt(x)) ** 2) / 2
+    np_x = np.array(x)
+    np_y = np.array(y)
+    return np.sum(((np.sqrt(1 - np_y) - np.sqrt(1 - np_x)) ** 2 + (np.sqrt(np_y) - np.sqrt(np_x)) ** 2) / 2, axis=1)
 
 
 def absolute(x, y):
-    return np.abs(y - x)
+    np_x = np.array(x)
+    np_y = np.array(y)
+    return np.sum(np.abs(np_y - np_x), axis=1)
 
 
 def dot(x, y):
-    return np.dot(x, y)
+    np_x = np.array(x)
+    np_y = np.array(y)
+    return np.dot(np_x, np_y.transpose())
 
 
 def mix(x, y):
-    return -np.log(np.sum(x * np.exp(-y)))
+    np_x = np.array(x)
+    np_y = np.array(y)
+    return -np.log(np.sum(np_x * np.exp(-np_y), axis=1))
+
+
+def regret(player_loss, experts_loss):
+    return player_loss - np.min(experts_loss)
