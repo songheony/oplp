@@ -3,7 +3,7 @@ class Observer:
         self.dic = dict()
 
     def put(self, key, value):
-        self.dic.get(key, []).append(value)
+        self.dic[key] = self.dic.get(key, []) + [value]
 
     def get(self, key):
         return self.dic.get(key, None)

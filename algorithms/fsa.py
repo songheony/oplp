@@ -10,7 +10,6 @@ class FSA(Algorithm):
         self.a = a
 
     def update(self, losses):
-        super().update()
         np_losses = np.array(losses)
         wm = self.w * np.exp(-self.lr * np_losses)
         pool = np.sum(wm) * self.a

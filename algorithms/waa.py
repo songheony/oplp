@@ -9,7 +9,6 @@ class WAA(Algorithm):
         self.lr = lr
 
     def update(self, losses):
-        super().update()
         np_losses = np.array(losses)
         wm = self.w * np.exp(-self.lr * np_losses)
         self.w = wm / np.sum(wm)
