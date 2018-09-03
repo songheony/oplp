@@ -38,4 +38,6 @@ def mix(x, y):
 
 
 def regret(player_loss, experts_loss):
-    return player_loss - np.min(experts_loss)
+    np_player_loss = np.array(player_loss)
+    np_experts_loss = np.array(experts_loss)
+    return np.sum(np_player_loss) - np.min(np.sum(np_experts_loss, axis=0))
