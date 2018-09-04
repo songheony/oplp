@@ -3,15 +3,13 @@ import numpy as np
 
 
 class FSA(Algorithm):
-    def __init__(self, n, lr, a):
+    def __init__(self, n):
         super().__init__()
         self.w = np.ones(n) / n
-        self.lr = lr
-        self.a = a
 
-    def update(self, losses):
+    def update(self, losses, lr, a):
         np_losses = np.array(losses)
-        wm = self.w * np.exp(-self.lr * np_losses)
-        pool = np.sum(wm) * self.a
-        wm = (1 - self.a) * wm + (pool - self.a * wm) / (len(wm) - 1)
+        wm = self.w * np.exp(-lr * np_losses)
+        pool = np.sum(wm) * a
+        wm = (1 - a) * wm + (pool - a * wm) / (len(wm) - 1)
         self.w = wm / np.sum(wm)
