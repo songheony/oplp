@@ -12,5 +12,6 @@ class Observer:
         return self.dic.get(key, None)
 
     def save(self, filepath):
-        df = pd.DataFrame.from_dict(self.dic)
+        df = pd.DataFrame.from_dict(self.dic, orient='index')
+        df.transpose()
         df.to_csv(filepath)
