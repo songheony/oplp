@@ -19,7 +19,7 @@ class Player:
 
     def predict(self, *args, **kwargs):
         _return = np.dot(np.array(self.algorithm.w), self._advice(*args, **kwargs))
-        self.observer.put('predict', _return)
+        self.observer.put('prediction', _return)
         return _return
 
     def update(self, *args, **kwargs):
