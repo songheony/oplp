@@ -1,2 +1,2 @@
 # oplp
-Online Prediction Library for Python
+Online Prediction(Online Learning) Library for Python
