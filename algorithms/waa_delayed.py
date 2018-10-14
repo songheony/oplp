@@ -7,7 +7,6 @@ class WAADelayed(Algorithm):
         super().__init__()
         self.w = np.ones(n) / n
 
-
     '''
     gradient_losses should be n X len(dt)
     '''
