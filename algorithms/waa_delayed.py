@@ -2,7 +2,7 @@ from .algorithm import Algorithm
 import numpy as np
 
 
-class WAA(Algorithm):
+class WAADelayed(Algorithm):
     def __init__(self, n):
         super().__init__()
         self.w = np.ones(n) / n
