@@ -1,4 +1,5 @@
 import pandas as pd
+import copy
 
 
 class Observer:
@@ -6,7 +7,7 @@ class Observer:
         self.dic = dict()
 
     def put(self, key, value):
-        self.dic[key] = self.dic.get(key, []) + [value]
+        self.dic[key] = self.dic.get(key, []) + [copy.deepcopy(value)]
 
     def get(self, key):
         return self.dic.get(key, None)

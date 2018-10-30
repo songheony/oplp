@@ -11,7 +11,7 @@ def gradient_square(w, z, y):
     np_w = np.array(w)
     np_z = np.array(z)
     np_y = np.array(y)
-    return np.sum(2 * np.dot(np_z,  (np.dot(np_w, np_z) - np_y).transpose()))
+    return np.sum(2 * np.dot(np_z,  (np.dot(np_w, np_z) - np_y).transpose()), axis=1)
 
 
 def logarithmic(x, y):
