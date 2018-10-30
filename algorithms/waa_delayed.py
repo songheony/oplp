@@ -1,6 +1,6 @@
+from __future__ import division
 from .algorithm import Algorithm
 import numpy as np
-from __future__ import division
 
 
 class WAADelayed(Algorithm):
