@@ -1,5 +1,6 @@
 from .algorithm import Algorithm
 import numpy as np
+from __future__ import division
 
 
 class WAA(Algorithm):

@@ -1,4 +1,5 @@
 import numpy as np
+from __future__ import division
 
 
 def square(x, y):
