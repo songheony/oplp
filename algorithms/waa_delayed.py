@@ -16,7 +16,7 @@ class WAADelayed(Algorithm):
         np_gradient_losses = np.array(gradient_losses)
         # check the number of element
         assert np_gradient_losses.shape[0] == self.w.shape[0]
-        
+
         changes = lr * np_gradient_losses.sum(axis=1)
         temp = np.log(self.w + sys.float_info.min) - changes
-        self.w = np.exp(temp - sc.logsumexp(temp))      
+        self.w = np.exp(temp - sc.logsumexp(temp))
